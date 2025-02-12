@@ -1,9 +1,12 @@
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class ContaTerminal {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+
+        try{
         //TODO: Conhecer e importar classe scanenr
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
@@ -19,9 +22,6 @@ public class ContaTerminal {
         System.out.println("Digite o valor a ser depositado: ");
         double amount = sc.nextDouble();
 
-        
-
-
         //Obter pela scanner os dados
 
         //exibir mensagem final
@@ -29,5 +29,10 @@ public class ContaTerminal {
         System.out.println("Ola " + nome + ", obrigado por criar uma nova conta em nosso banco. Sua agencia eh " + ag + ", conta " + ct + " e o saldo de R$" + amount + " ja esta disponivel para saque.");
 
         sc.close();
+    }
+    catch(InputMismatchException e)
+    {
+        System.out.println("Campo conta e saldo deve ser numerico");
+    }
     }
 }
